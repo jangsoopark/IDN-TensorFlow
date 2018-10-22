@@ -71,12 +71,9 @@ def train_loop(sess, sr_model, config, batch_len, images, labels):
 
 
 def trainer(config):
-    # data set
-    # image_path = './data/dataset/hr_scale_%d_size_%d.npy' % (config.scale, config.image_size)
-    # label_path = './data/dataset/hr_size_%d.npy' % config.image_size
 
     print('load dataset')
-    print('./data/train_%d.h5' % config.scale)
+    print(config.dataset_name)
     images, labels = load.load_h5(config.dataset_name)
 
     print(images.shape)
@@ -93,6 +90,7 @@ def trainer(config):
         sr_model = model.Model(config)
 
         if config.pretrain:
+            sess.run(tf.global_variables_initializer())
             sr_model.load(sess)
         else:
             sess.run(tf.global_variables_initializer())

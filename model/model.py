@@ -71,6 +71,7 @@ class Model(object):
         checkpoint = tf.train.get_checkpoint_state(path)
 
         if checkpoint and checkpoint.model_checkpoint_path:
+
             checkpoint_name = os.path.basename(checkpoint.model_checkpoint_path)
             self.saver.restore(session, os.path.join(path, checkpoint_name))
             return True
