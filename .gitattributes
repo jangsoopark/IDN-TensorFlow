@@ -1,2 +1,2 @@
-./*.m linguist-vendored
-./*.bat linguist-vendored
+*.m linguist-vendored
+*.bat linguist-vendored
