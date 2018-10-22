@@ -11,5 +11,6 @@ data/test/butterfly_GT.bmp
 data/test/head_GT.bmp
 data/test/woman_GT.bmp
 data/train_x2.h5
+data/train_finetune_x2.h5
 model/__pycache__/
 summary/

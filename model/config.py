@@ -9,6 +9,8 @@ config.DEFINE_string('device', '/gpu:1', 'device name')
 config.DEFINE_boolean('pretrain', False, 'use pre-trained model')
 config.DEFINE_string('pretrained_model_name', 'idr', 'use pre-trained model')
 
+config.DEFINE_string('dataset_name', 'train_x2.h5', 'use pre-trained model')
+
 config.DEFINE_integer('epochs', 100000, 'number of epochs 1e+5 for pre training 6e+5 for training')
 config.DEFINE_integer('scale', 2, 'size of input image')
 config.DEFINE_integer('image_size', None, 'size of input image')

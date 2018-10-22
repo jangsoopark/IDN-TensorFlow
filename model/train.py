@@ -77,7 +77,7 @@ def trainer(config):
 
     print('load dataset')
     print('./data/train_%d.h5' % config.scale)
-    images, labels = load.load_h5('./data/train_x%d.h5' % config.scale)
+    images, labels = load.load_h5(config.dataset_name)
 
     print(images.shape)
     print(labels.shape)
