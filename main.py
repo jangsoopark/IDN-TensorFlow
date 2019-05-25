@@ -1,17 +1,18 @@
+
 import tensorflow as tf
 
-import model.config as config
-import model.train as train
-import model.test as test
+import model.configurations as configurations
+import train
+import test
 
 
 def main(_):
-    model_config = config.config.FLAGS
+    config = configurations.config.FLAGS
 
-    if model_config.is_train:
-        train.trainer(model_config)
+    if config.is_train:
+        train.run(config)
     else:
-        test.test(model_config)
+        test.run(config)
 
 
 if __name__ == '__main__':
