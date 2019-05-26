@@ -205,80 +205,74 @@ PSNR performance plot on Set5
 - **Set5**
 - Pre-Training
 
-| scale      | Bicubic        | IDN (Original) | IDN (TensorFlow) |
-| ---------- | -------------- | -------------- | ---------------- |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%202" alt="\times 2" /> | 33.68 / 0.9304 |                |                  |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%203" alt="\times 3" /> | 30.40 / 0.8682 |                |                  |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%204" alt="\times 4" /> | 28.43 / 0.8104 |                |                  |
+| scale                                                        | Bicubic        | IDN (Original) | IDN (TensorFlow) |
+| ------------------------------------------------------------ | -------------- | -------------- | ---------------- |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%202" alt="\times 2" /> | 33.68 / 0.9304 | 37.83 / 0.9600 |                  |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%203" alt="\times 3" /> | 30.40 / 0.8682 | 34.11 / 0.9253 |                  |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%204" alt="\times 4" /> | 28.43 / 0.8104 | 31.82 / 0.8903 |                  |
 
 
 
 - Fine Tuning
 
-| scale      | Bicubic        | IDN (Original) | IDN (TensorFlow) |
-| ---------- | -------------- | -------------- | ---------------- |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%202" alt="\times 2" /> | 33.68 / 0.9304 |                |                  |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%203" alt="\times 3" /> | 30.40 / 0.8682 |                |                  |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%204" alt="\times 4" /> | 28.43 / 0.8104 |                |                  |
-
-
+| scale                                                        | Bicubic        | IDN (Original) | IDN (TensorFlow) |
+| ------------------------------------------------------------ | -------------- | -------------- | ---------------- |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%202" alt="\times 2" /> | 33.68 / 0.9304 | 37.83 / 0.9600 |                  |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%203" alt="\times 3" /> | 30.40 / 0.8682 | 34.11 / 0.9253 |                  |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%204" alt="\times 4" /> | 28.43 / 0.8104 | 31.82 / 0.8903 |                  |
 
 - **Set14**
 - Pre-Training
 
-| scale      | Bicubic        | IDN (Original) | IDN (TensorFlow) |
-| ---------- | -------------- | -------------- | ---------------- |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%202" alt="\times 2" /> | 30.24 / 0.8693 |                |                  |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%203" alt="\times 3" /> | 27.54 / 0.7746 |                |                  |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%204" alt="\times 4" /> | 26.00 / 0.7029 |                |                  |
-
-
+| scale                                                        | Bicubic        | IDN (Original) | IDN (TensorFlow) |
+| ------------------------------------------------------------ | -------------- | -------------- | ---------------- |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%202" alt="\times 2" /> | 30.24 / 0.8693 | 33.30 / 0.9148 |                  |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%203" alt="\times 3" /> | 27.54 / 0.7746 | 29.99 / 0.8354 |                  |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%204" alt="\times 4" /> | 26.00 / 0.7029 | 28.25 / 0.7730 |                  |
 
 - Fine Tuning
 
-| scale      | Bicubic        | IDN (Original) | IDN (TensorFlow) |
-| ---------- | -------------- | -------------- | ---------------- |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%202" alt="\times 2" /> | 30.24 / 0.8693 |                |                  |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%203" alt="\times 3" /> | 27.54 / 0.7746 |                |                  |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%204" alt="\times 4" /> | 26.00 / 0.7029 |                |                  |
+| scale                                                        | Bicubic        | IDN (Original) | IDN (TensorFlow) |
+| ------------------------------------------------------------ | -------------- | -------------- | ---------------- |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%202" alt="\times 2" /> | 30.24 / 0.8693 | 33.30 / 0.9148 |                  |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%203" alt="\times 3" /> | 27.54 / 0.7746 | 29.99 / 0.8354 |                  |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%204" alt="\times 4" /> | 26.00 / 0.7029 | 28.25 / 0.7730 |                  |
 
 - **B100**
 - Pre-Training
 
-| scale      | Bicubic        | IDN (Original) | IDN (TensorFlow) |
-| ---------- | -------------- | -------------- | ---------------- |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%202" alt="\times 2" /> | 29.56 / 0.8442 |                |                  |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%203" alt="\times 3" /> | 27.21 / 0.7401 |                |                  |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%204" alt="\times 4" /> | 25.96 / 0.6697 |                |                  |
-
-
+| scale                                                        | Bicubic        | IDN (Original) | IDN (TensorFlow) |
+| ------------------------------------------------------------ | -------------- | -------------- | ---------------- |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%202" alt="\times 2" /> | 29.56 / 0.8442 | 32.08 / 0.8985 |                  |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%203" alt="\times 3" /> | 27.21 / 0.7401 | 28.95 / 0.8013 |                  |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%204" alt="\times 4" /> | 25.96 / 0.6697 | 27.41 / 0.7297 |                  |
 
 - Fine Tuning
 
-| scale      | Bicubic        | IDN (Original) | IDN (TensorFlow) |
-| ---------- | -------------- | -------------- | ---------------- |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%202" alt="\times 2" /> | 29.56 / 0.8442 |                |                  |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%203" alt="\times 3" /> | 27.21 / 0.7401 |                |                  |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%204" alt="\times 4" /> | 25.96 / 0.6697 |                |                  |
+| scale                                                        | Bicubic        | IDN (Original) | IDN (TensorFlow) |
+| ------------------------------------------------------------ | -------------- | -------------- | ---------------- |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%202" alt="\times 2" /> | 29.56 / 0.8442 | 32.08 / 0.8985 |                  |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%203" alt="\times 3" /> | 27.21 / 0.7401 | 28.95 / 0.8013 |                  |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%204" alt="\times 4" /> | 25.96 / 0.6697 | 27.41 / 0.7297 |                  |
 
 - **Urban100**
 - Pre-Training
 
-| scale      | Bicubic        | IDN (Original) | IDN (TensorFlow) |
-| ---------- | -------------- | -------------- | ---------------- |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%202" alt="\times 2" /> | 26.88 / 0.8410 |                |                  |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%203" alt="\times 3" /> | 24.46 / 0.7358 |                |                  |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%204" alt="\times 4" /> | 23.14 / 0.6588 |                |                  |
+| scale                                                        | Bicubic        | IDN (Original) | IDN (TensorFlow) |
+| ------------------------------------------------------------ | -------------- | -------------- | ---------------- |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%202" alt="\times 2" /> | 26.88 / 0.8410 | 31.27 / 0.9196 |                  |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%203" alt="\times 3" /> | 24.46 / 0.7358 | 27.42 / 0.8359 |                  |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%204" alt="\times 4" /> | 23.14 / 0.6588 | 25.41 / 0.7632 |                  |
 
 
 
 - Fine Tuning
 
-| scale      | Bicubic        | IDN (Original) | IDN (TensorFlow) |
-| ---------- | -------------- | -------------- | ---------------- |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%202" alt="\times 2" /> | 26.88 / 0.8410 |                |                  |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%203" alt="\times 3" /> | 24.46 / 0.7358 |                |                  |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%204" alt="\times 4" /> | 23.14 / 0.6588 |                |                  |
+| scale                                                        | Bicubic        | IDN (Original) | IDN (TensorFlow) |
+| ------------------------------------------------------------ | -------------- | -------------- | ---------------- |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%202" alt="\times 2" /> | 26.88 / 0.8410 | 31.27 / 0.9196 |                  |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%203" alt="\times 3" /> | 24.46 / 0.7358 | 27.42 / 0.8359 |                  |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%204" alt="\times 4" /> | 23.14 / 0.6588 | 25.41 / 0.7632 |                  |
 
 ------
 
