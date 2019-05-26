@@ -336,7 +336,7 @@ Examples in scale 2
 
 If you want to change other parameters for training, please see the file
 
-> VDSR-TensorFlow/model/configurations.py 
+> IDN-TensorFlow/model/configurations.py 
 
 
 
@@ -352,12 +352,15 @@ python main.py --model_name=idn_pre_x2 --is_train=False --scale=2
 
 ### Trained checkpoint in experiments
 
-- checkpoint [[download]](https://drive.google.com/file/d/1wiej51wFY0oYsoKF7gGiWZT5_t5mFt0f/view?usp=sharing)
+- checkpoint 
 
 ### Training dataset
 
-- vdsr_train.h5 [[download]](https://drive.google.com/file/d/1wiej51wFY0oYsoKF7gGiWZT5_t5mFt0f/view?usp=sharing)
+- asdf
 
 
 
 ------
+
+math equations are converted with [upmath.me](https://upmath.me)
+
