@@ -1,47 +1,51 @@
-# VDSR-TensorFlow
+# IDN-TensorFlow
 
 ---
 
-
-
 ## Introduction
 
-This repository is TensorFlow implementation of VDSR (CVPR16). 
+This repository is TensorFlow implementation of IDN(CVPR16). 
 
-You can see more details from paper and author's project page
+You can see more details from paper and author's project repository
 
-- Project page : [VDSR page](<https://cv.snu.ac.kr/research/VDSR/>)
+- Github : [[IDN-Caffe]](https://github.com/Zheng222/IDN-Caffe)
 
-- Paper : ["Accurate Image Super-Resolution Using Very Deep Convolutional Network"](<https://cv.snu.ac.kr/research/VDSR/VDSR_CVPR2016.pdf>)
+- Paper : ["Fast and Accurate Single Image Super-Resolution via Information Distillation Network"](<http://openaccess.thecvf.com/content_cvpr_2018/papers/Hui_Fast_and_Accurate_CVPR_2018_paper.pdf>)
 
 ---
 
 ## Network Structure
 
->  VDSR-TensorFlow/model/network.py
+>  IDN-TensorFlow/model/network.py
 
-![VDSR Network Structure](./resources/figure/001-VDSR.png)
+![IDN Network Structure](./resources/figure/001-idn.png)
 
-- ILR denotes Interpolated Low Resolution image
+- **FBlock : Feqture extraction block**
+
+  
+
+![FBlock](./resources/figure/002-fblock.png)
+
+- **DBlock : Information Distillation block**
+  
+  - Consists of **Enhancement unit** and **Compression unit**
+  
+    
+
+![DBlock](./resources/figure/003-dblock.png)
+
+- **RBlock : Reconstruction block**
+  
+  - De-convolution
+  
+    
+
+![RBlock](./resources/figure/004-rblock.png)
+
+
+
+- LR denotes Low Resolution image
 - SR denotes reconstructed super resolution image
-
-
-
-### Details
-
-- VDSR structures
-
-| Layer (# layers)  | Filter size | Input Dimension | Output Dimension | Activation Function |
-| ----------------- | ----------- | --------------- | ---------------- | ------------------- |
-| Input Layer (1)   | $3\times 3$ | 1               | 64               | ReLU                |
-| Hidden Layer (18) | $3\times 3$ | 64              | 64               | ReLU                |
-| Output Layer (1)  | $3\times 3$ | 64              | 1                | -                   |
-
-- I/O 
-
-| Input (LR)                                     | Output (Residual)                              | Reconstructed (LR + Residual)                  |
-| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| ![LR](./resources/figure/002-1-LR_scale_2.png) | ![HF](./resources/figure/002-2-HF_scale_2.png) | ![SR](./resources/figure/002-3-SR_scale_2.png) |
 
 ---
 
@@ -49,9 +53,9 @@ You can see more details from paper and author's project page
 
 ### Loss Function
 
-> \_loss_function(self, reg_parameter) in VDSR-TensorFlow/model/\_\__init\_\_.py
+> \_loss_function(self, reg_parameter) in IDN-TensorFlow/model/\_\__init\_\_.py
 
-- Basic loss function
+- Pre-training stage : L2 loss
 
 
 $$
@@ -59,10 +63,10 @@ Loss(W)=\frac{1}{2}||y-f(x)||^{2}
 $$
 
 
-- Loss functions for **residual learning**
+- Fine tuning stage : L1 loss
 
 $$
-Loss(W)=\frac{1}{2}||r-f(x)||^{2}
+Loss(W)=|r-f(x)|
 $$
 
 - Regularization
@@ -76,7 +80,7 @@ $$
   
 
 - Notations
-  - $W$ : Weights in VDSR
+  - $W$ : Weights in IDN
   - $y$ : ground truth (original high resolution image, HR)
   - $x$ : interpolated low resolution image (ILR)
   - $f(x)$ : reconstructed super resolution image
@@ -89,35 +93,32 @@ $$
 
 ### Optimization
 
-> \_optimization_function(self, grad_clip, momentum_rate) in VDSR-TensorFlow/model/\_\__init\_\_.py
+> \_optimization_function(self, grad_clip, momentum_rate) in IDN-TensorFlow/model/\_\__init\_\_.py
 
 - Optimization Method 
 
-  - Stochastic Gradient Descent (SGD) method [[Wikipedia]](<https://en.wikipedia.org/wiki/Stochastic_gradient_descent>)
-    - Momentum : 0.9
-
+  - ADAM method [[paper]](<https://arxiv.org/pdf/1412.6980.pdf>)
+  
 - Weight Initialization
 
   - He initialization [[paper]](<https://www.cv-foundation.org/openaccess/content_iccv_2015/papers/He_Delving_Deep_into_ICCV_2015_paper.pdf>)
 
 - **Learning Rate**
 
-  - Extremely high value is used to speed-up convergence rate
-  - Initial Learning rate : 0.1
-
+  - Initial Learning rate : 1e-4
+  
 - **Learning Rate Decay**
 
-   ![learning rage in training](./resources/figure/003-learning_rate.png)
+  - Learning rate decay is applied in tine tuning stage
 
-  - Learning rate is decreased by factor of 10 for every 20 epochs
+  ![learning rage in training](./resources/figure/005-learning_rate.png)
 
-- **Adjustable Gradient Clipping**
+  - Learning rate is decreased by factor of 10 for every 250 epochs
 
-  - Clip individual gradients to $[-\frac{\theta}{\gamma}, \frac{\theta}{\gamma}]$
-    - $\theta$ denotes parameters for gradient clipping
-    - $\gamma$ denotes learning rate
+- Epochs 
 
-- Epochs : 80
+  - Pre-training stage: 100
+  - Fine tuning stage : 600
 
 ---
 
@@ -126,21 +127,27 @@ $$
 ### Training Data
 
 
-> VDSR-TensorFlow/data/generate_dataset/train_data.m
+> IDN-TensorFlow/data/generate_dataset/train_data.m
 
 - 291 images
-  - Download from Author's page [[zip(train)]](https://cv.snu.ac.kr/research/VDSR/train_data.zip)
-- Bicubic interpolation is used for LR data acquisition
+  - Download from Author's Repository
 - Data Augmentations (Rotation, flip) were used
 - Scale Factor : $\times 2$, $\times 3$, $\times 4$
-- Patch size : 41
+- Patch size 
+
+| scale | Pre-Training (LR / GT) | Fine Tuning (LR / GT) |
+| ----- | ---------------------- | --------------------- |
+| 2     | 29 / 58                | 39 / 78               |
+| 3     | 15 / 45                | 26 / 78               |
+| 4     | 11 / 44                | 19 / 76               |
+
 - Batch size : 64
 
 
 
 ### Testing Data
 
->  VDSR-TensorFlow/data/generate_dataset/test_data.m
+>  IDN-TensorFlow/data/generate_dataset/test_data.m
 
 - Set5, Set14, B100, Urban100
   - Download from Author's page [[zip(test)]](https://cv.snu.ac.kr/research/VDSR/test_data.zip)
@@ -155,11 +162,29 @@ $$
 
 PSNR performance plot on Set5
 
-| ![scale2](./resources/figure/004-1-validation_Set5_scale_2.png) | ![scale2](./resources/figure/004-2-validation_Set5_scale_3.png) | ![scale2](./resources/figure/004-3-validation_Set5_scale_4.png) |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Scale 2                                                      | Scale 3                                                      | Scale 4                                                      |
+- Scale 2
 
+  |              |             |
+  | ------------ | ----------- |
+  | Pre-training | Fine Tuning |
 
+  
+
+- Scale 3
+
+  |              |             |
+  | ------------ | ----------- |
+  | Pre-training | Fine Tuning |
+
+  
+
+- Scale 4
+
+  |              |             |
+  | ------------ | ----------- |
+  | Pre-training | Fine Tuning |
+
+  
 
 ### Objective Quality Assessment
 
@@ -167,52 +192,96 @@ PSNR performance plot on Set5
 
 - Bicubic Interpolation 
   - imresize(..., ..., 'bicubic') in Matlab
-- VDSR (Original)
-  - Author's MatConvNet implementation [[Code]](https://cv.snu.ac.kr/research/VDSR/VDSR_code.zip)
-- VDSR (TensorFlow)
+- IDN(Original)
+  - Author's Caffe implementation [[Code]](https://github.com/Zheng222/IDN-Caffe)
+- IDN (TensorFlow)
   - TensorFlow implementation
   - Train Details for Comparison
-    - Gradient Clipping parameter $\theta$ = 0.0001
     - Data Augmentation
-      - Rotation : 90°
+      - Rotation : 90°, 180°, 270°
       - Flip : left / right
+      - Down scale : 0.9, 0.8, 0.7, 0.6
 
 
 #### Average PSNR/SSIM
 
 - **Set5**
+- Pre-Training
 
-| scale      | Bicubic        | VDSR (Original) | VDSR(TensorFlow) |
-| ---------- | -------------- | --------------- | ---------------- |
-| $\times 2$ | 33.68 / 0.9304 | 37.53 / 0.9586  | 37.07 / 0.9576   |
-| $\times 3$ | 30.40 / 0.8682 | 33.66 / 0.9213  | 33.20 / 0.9171   |
-| $\times 4$ | 28.43 / 0.8104 | 31.35 / 0.8838  | 30.90 / 0.8756   |
+| scale      | Bicubic        | IDN (Original) | IDN (TensorFlow) |
+| ---------- | -------------- | -------------- | ---------------- |
+| $\times 2$ | 33.68 / 0.9304 |                |                  |
+| $\times 3$ | 30.40 / 0.8682 |                |                  |
+| $\times 4$ | 28.43 / 0.8104 |                |                  |
+
+
+
+- Fine Tuning
+
+| scale      | Bicubic        | IDN (Original) | IDN (TensorFlow) |
+| ---------- | -------------- | -------------- | ---------------- |
+| $\times 2$ | 33.68 / 0.9304 |                |                  |
+| $\times 3$ | 30.40 / 0.8682 |                |                  |
+| $\times 4$ | 28.43 / 0.8104 |                |                  |
 
 
 
 - **Set14**
+- Pre-Training
 
-| scale      | Bicubic        | VDSR (Original) | VDSR(TensorFlow) |
-| ---------- | -------------- | --------------- | ---------------- |
-| $\times 2$ | 30.24 / 0.8693 | 37.53 / 0.9586  | 32.67 / 0.9108   |
-| $\times 3$ | 27.54 / 0.7746 | 33.66 / 0.9213  | 29.58 / 0.8295   |
-| $\times 4$ | 26.00 / 0.7029 | 31.35 / 0.8838  | 27.81 / 0.7627   |
+| scale      | Bicubic        | IDN (Original) | IDN (TensorFlow) |
+| ---------- | -------------- | -------------- | ---------------- |
+| $\times 2$ | 30.24 / 0.8693 |                |                  |
+| $\times 3$ | 27.54 / 0.7746 |                |                  |
+| $\times 4$ | 26.00 / 0.7029 |                |                  |
+
+
+
+- Fine Tuning
+
+| scale      | Bicubic        | IDN (Original) | IDN (TensorFlow) |
+| ---------- | -------------- | -------------- | ---------------- |
+| $\times 2$ | 30.24 / 0.8693 |                |                  |
+| $\times 3$ | 27.54 / 0.7746 |                |                  |
+| $\times 4$ | 26.00 / 0.7029 |                |                  |
 
 - **B100**
+- Pre-Training
 
-| scale      | Bicubic        | VDSR (Original) | VDSR(TensorFlow) |
-| ---------- | -------------- | --------------- | ---------------- |
-| $\times 2$ | 29.56 / 0.8442 | 37.53 / 0.9586  | 31.65 / 0.8943   |
-| $\times 3$ | 27.21 / 0.7401 | 33.66 / 0.9213  | 28.66 / 0.7952   |
-| $\times 4$ | 25.96 / 0.6697 | 31.35 / 0.8838  | 27.14 / 0.7217   |
+| scale      | Bicubic        | IDN (Original) | IDN (TensorFlow) |
+| ---------- | -------------- | -------------- | ---------------- |
+| $\times 2$ | 29.56 / 0.8442 |                |                  |
+| $\times 3$ | 27.21 / 0.7401 |                |                  |
+| $\times 4$ | 25.96 / 0.6697 |                |                  |
+
+
+
+- Fine Tuning
+
+| scale      | Bicubic        | IDN (Original) | IDN (TensorFlow) |
+| ---------- | -------------- | -------------- | ---------------- |
+| $\times 2$ | 29.56 / 0.8442 |                |                  |
+| $\times 3$ | 27.21 / 0.7401 |                |                  |
+| $\times 4$ | 25.96 / 0.6697 |                |                  |
 
 - **Urban100**
+- Pre-Training
 
-| scale      | Bicubic        | VDSR (Original) | VDSR(TensorFlow) |
-| ---------- | -------------- | --------------- | ---------------- |
-| $\times 2$ | 26.88 / 0.8410 | 37.53 / 0.9586  | 30.20 / 0.9087   |
-| $\times 3$ | 24.46 / 0.7358 | 33.66 / 0.9213  | 26.69 / 0.8178   |
-| $\times 4$ | 23.14 / 0.6588 | 31.35 / 0.8838  | 24.85 / 0.7406   |
+| scale      | Bicubic        | IDN (Original) | IDN (TensorFlow) |
+| ---------- | -------------- | -------------- | ---------------- |
+| $\times 2$ | 26.88 / 0.8410 |                |                  |
+| $\times 3$ | 24.46 / 0.7358 |                |                  |
+| $\times 4$ | 23.14 / 0.6588 |                |                  |
+
+
+
+- Fine Tuning
+
+| scale      | Bicubic        | IDN (Original) | IDN (TensorFlow) |
+| ---------- | -------------- | -------------- | ---------------- |
+| $\times 2$ | 26.88 / 0.8410 |                |                  |
+| $\times 3$ | 24.46 / 0.7358 |                |                  |
+| $\times 4$ | 23.14 / 0.6588 |                |                  |
 
 ---
 
@@ -220,18 +289,22 @@ PSNR performance plot on Set5
 
 - "img002" of Urban100 for scale factor $\times 2$
 
-| Ground Truth                                                 | Bicubic                                                      | VDSR(TensorFlow)                                             |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![img002_gt](./resources/figure/005-1-visual_img002_gt.png)  | ![img002_gt](./resources/figure/005-2-visual_img002_lr.png)  | ![img002_gt](./resources/figure/005-3-visual_img002_sr.png)  |
-| ![img002_gt](./resources/figure/005-1-visual_img002_gt_part.png) | ![img002_gt](./resources/figure/005-2-visual_img002_lr_part.png) | ![img002_gt](./resources/figure/005-3-visual_img002_sr_part.png) |
-
-
+| Ground Truth | Bicubic | IDN (TensorFlow) Pre-train | IDN (Tensorflow) Fine Tuning |
+| ------------ | ------- | -------------------------- | ---------------------------- |
+|              |         |                            |                              |
+|              |         |                            |                              |
 
 - ???
 - ???
 - ???
 
+---
 
+## Difference with Authors Implementation
+
+Image Size
+
+Epochs and Learning rate decay step
 
 
 
@@ -251,10 +324,19 @@ PSNR performance plot on Set5
 
 ### Training Command
 
-- in run.bat/sh
-  - python main.py --model_name=vdsr **--is_train=True** --grad_clip=1e-3
+Examples in scale 2
 
+- in run.bat/sh
+  
+- Pre-training
     
+  python main.py --model_name=idn_pre_x2 --is_train=True --scale=2 --pretrain=False --epochs=100 --data_path=data/train_data/idn_train_x2.h5
+    
+    
+    
+  - Fine Tuning
+  
+    python main.py --model_name=idn_x2 --is_train=True --scale=2 --pretrain=True --pretrained_model_name=idn_pre_x2 --learning_rate_decay=True --decay_step=250 --epochs=600 --data_path=data/train_data/idn_fine_tuning_x2.h5 
 
 If you want to change other parameters for training, please see the file
 
@@ -264,9 +346,11 @@ If you want to change other parameters for training, please see the file
 
 ### Testing Command
 
-in run.bat
+Examples in scale 2
 
-python main.py --model_name=vdsr **--is_train=False**
+in run.bat/sh
+
+python main.py --model_name=idn_pre_x2 --is_train=False --scale=2
 
 
 
