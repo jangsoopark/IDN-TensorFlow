@@ -109,7 +109,7 @@ Loss(W)=|r-f(x)|
 
   - Learning rate decay is applied in tine tuning stage
 
-  ![learning rage in training](./resources/figure/005-learning_rate.png)
+  ![learning rage in training](./resources/figure/005-learning_rate.PNG)
 
   - Learning rate is decreased by factor of 10 for every 250 epochs
 
