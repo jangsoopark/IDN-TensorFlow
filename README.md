@@ -17,7 +17,7 @@ You can see more details from paper and author's project repository
 
 > IDN-TensorFlow/model/network.py
 
-![IDN Network Structure](./resources/figure/001-idn.png)
+![IDN Network Structure](./resources/figure/001-IDN.png)
 
 - **FBlock : Feqture extraction block**
 
