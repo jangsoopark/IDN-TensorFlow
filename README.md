@@ -129,7 +129,8 @@ Loss(W)=|r-f(x)|
 - 291 images
   - Download from Author's Repository
 - Data Augmentations (Rotation, flip) were used
-- Scale Factor : $\times 2$, $\times 3$, $\times 4$
+- Scale Factor : <img src="https://tex.s2cms.ru/svg/%5Ctimes%202" alt="\times 2" />, <img src="https://tex.s2cms.ru/svg/%5Ctimes%203" alt="\times 3" />, <img src="https://tex.s2cms.ru/svg/%5Ctimes%204" alt="\times 4" />
+
 - Patch size 
 
 | scale | Pre-Training (LR / GT) | Fine Tuning (LR / GT) |
@@ -149,7 +150,7 @@ Loss(W)=|r-f(x)|
 - Set5, Set14, B100, Urban100
   - Download from Author's page [[zip(test)]](https://cv.snu.ac.kr/research/VDSR/test_data.zip)
 - Bicubic interpolation is used for LR data acquisition
-- Scale Factor : $\times 2$, $\times 3$, $\times 4$
+- Scale Factor : <img src="https://tex.s2cms.ru/svg/%5Ctimes%202" alt="\times 2" />, <img src="https://tex.s2cms.ru/svg/%5Ctimes%203" alt="\times 3" />, <img src="https://tex.s2cms.ru/svg/%5Ctimes%204" alt="\times 4" />
 
 ------
 
