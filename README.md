@@ -278,7 +278,7 @@ PSNR performance plot on Set5
 
 ### Visual Quality
 
-- "img002" of Urban100 for scale factor $\times 2$
+- "img002" of Urban100 for scale 2
 
 | Ground Truth | Bicubic | IDN (TensorFlow) Pre-train | IDN (Tensorflow) Fine Tuning |
 | ------------ | ------- | -------------------------- | ---------------------------- |
