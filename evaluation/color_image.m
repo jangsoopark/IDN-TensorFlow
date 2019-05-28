@@ -35,11 +35,11 @@ for s = 1:numel(scale)
         load(fullfile(benchmark_root, benchmark, cb_path));
         load(fullfile(benchmark_root, benchmark, cr_path));
 
-        gt_ = uint8(gt * 255);
-        gt_color = ycbcr2rgb(cat(3, gt_, cb, cr));
+        % gt_ = uint8(gt * 255);
+        % gt_color = ycbcr2rgb(cat(3, gt_, cb, cr));
 
-        lr_ = uint8(lr * 255);
-        lr_color = ycbcr2rgb(cat(3, lr_, cb, cr));
+        % lr_ = uint8(lr * 255);
+        % lr_color = ycbcr2rgb(cat(3, lr_, cb, cr));
 
         sr_ = uint8(sr * 255);
         sr_color = ycbcr2rgb(cat(3, sr_, cb, cr));
@@ -47,8 +47,8 @@ for s = 1:numel(scale)
         image_name = split(sr_list(i).name, '.');
         image_name = image_name{1};
 
-        imwrite(gt_color, fullfile(visualization_path, [image_name, '_gt.png']));
-        imwrite(lr_color, fullfile(visualization_path, [image_name, '_lr.png']));
+        % imwrite(gt_color, fullfile(visualization_path, [image_name, '_gt.png']));
+        % imwrite(lr_color, fullfile(visualization_path, [image_name, '_lr.png']));
         imwrite(sr_color, fullfile(visualization_path, [image_name, '_sr.png']));
     end
 end

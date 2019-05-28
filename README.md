@@ -162,25 +162,25 @@ PSNR performance plot on Set5
 
 - Scale 2
 
-  |              |             |
-  | ------------ | ----------- |
-  | Pre-training | Fine Tuning |
+  | ![scale2-pre](./resources/figure/006-scale-2-pre.png) | ![scale-2-fine](./resources/figure/007-scale-2-fine.png) |
+  | ----------------------------------------------------- | -------------------------------------------------------- |
+  | Pre-training                                          | Fine Tuning                                              |
 
   
 
 - Scale 3
 
-  |              |             |
-  | ------------ | ----------- |
-  | Pre-training | Fine Tuning |
+  | ![scale-3-pre](./resources/figure/008-scale-3-pre.png) | ![scale-3-fine](./resources/figure/009-scale-3-fine.png) |
+  | ------------------------------------------------------ | -------------------------------------------------------- |
+  | Pre-training                                           | Fine Tuning                                              |
 
   
 
 - Scale 4
 
-  |              |             |
-  | ------------ | ----------- |
-  | Pre-training | Fine Tuning |
+  | ![scale-4-pre](./resources/figure/010-scale-4-pre.png) | ![scale-4-fine](./resources/figure/011-scale-4-fine.png) |
+  | ------------------------------------------------------ | -------------------------------------------------------- |
+  | Pre-training                                           | Fine Tuning                                              |
 
   
 
@@ -207,9 +207,9 @@ PSNR performance plot on Set5
 
 | scale                                                        | Bicubic        | IDN (Original) | IDN (TensorFlow) |
 | ------------------------------------------------------------ | -------------- | -------------- | ---------------- |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%202" alt="\times 2" /> | 33.68 / 0.9304 | 37.83 / 0.9600 |                  |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%203" alt="\times 3" /> | 30.40 / 0.8682 | 34.11 / 0.9253 |                  |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%204" alt="\times 4" /> | 28.43 / 0.8104 | 31.82 / 0.8903 |                  |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%202" alt="\times 2" /> | 33.68 / 0.9304 | 37.83 / 0.9600 | 37.56 / 0.9592   |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%203" alt="\times 3" /> | 30.40 / 0.8682 | 34.11 / 0.9253 | 33.79 / 0.9213   |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%204" alt="\times 4" /> | 28.43 / 0.8104 | 31.82 / 0.8903 | 31.24 / 0.8797   |
 
 
 
@@ -217,52 +217,58 @@ PSNR performance plot on Set5
 
 | scale                                                        | Bicubic        | IDN (Original) | IDN (TensorFlow) |
 | ------------------------------------------------------------ | -------------- | -------------- | ---------------- |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%202" alt="\times 2" /> | 33.68 / 0.9304 | 37.83 / 0.9600 |                  |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%203" alt="\times 3" /> | 30.40 / 0.8682 | 34.11 / 0.9253 |                  |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%204" alt="\times 4" /> | 28.43 / 0.8104 | 31.82 / 0.8903 |                  |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%202" alt="\times 2" /> | 33.68 / 0.9304 | 37.83 / 0.9600 | 37.72 / 0.9600   |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%203" alt="\times 3" /> | 30.40 / 0.8682 | 34.11 / 0.9253 | 33.92 / 0.9233   |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%204" alt="\times 4" /> | 28.43 / 0.8104 | 31.82 / 0.8903 | 31.39 / 0.8846   |
+
+---
 
 - **Set14**
 - Pre-Training
 
 | scale                                                        | Bicubic        | IDN (Original) | IDN (TensorFlow) |
 | ------------------------------------------------------------ | -------------- | -------------- | ---------------- |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%202" alt="\times 2" /> | 30.24 / 0.8693 | 33.30 / 0.9148 |                  |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%203" alt="\times 3" /> | 27.54 / 0.7746 | 29.99 / 0.8354 |                  |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%204" alt="\times 4" /> | 26.00 / 0.7029 | 28.25 / 0.7730 |                  |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%202" alt="\times 2" /> | 30.24 / 0.8693 | 33.30 / 0.9148 | 33.11 / 0.9136   |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%203" alt="\times 3" /> | 27.54 / 0.7746 | 29.99 / 0.8354 | 29.68 / 0.8312   |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%204" alt="\times 4" /> | 26.00 / 0.7029 | 28.25 / 0.7730 | 27.92 / 0.7664   |
 
 - Fine Tuning
 
 | scale                                                        | Bicubic        | IDN (Original) | IDN (TensorFlow) |
 | ------------------------------------------------------------ | -------------- | -------------- | ---------------- |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%202" alt="\times 2" /> | 30.24 / 0.8693 | 33.30 / 0.9148 |                  |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%203" alt="\times 3" /> | 27.54 / 0.7746 | 29.99 / 0.8354 |                  |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%204" alt="\times 4" /> | 26.00 / 0.7029 | 28.25 / 0.7730 |                  |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%202" alt="\times 2" /> | 30.24 / 0.8693 | 33.30 / 0.9148 | 33.14 / 0.9142   |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%203" alt="\times 3" /> | 27.54 / 0.7746 | 29.99 / 0.8354 | 29.71 / 0.8313   |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%204" alt="\times 4" /> | 26.00 / 0.7029 | 28.25 / 0.7730 | 27.93 / 0.7679   |
+
+---
 
 - **B100**
 - Pre-Training
 
 | scale                                                        | Bicubic        | IDN (Original) | IDN (TensorFlow) |
 | ------------------------------------------------------------ | -------------- | -------------- | ---------------- |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%202" alt="\times 2" /> | 29.56 / 0.8442 | 32.08 / 0.8985 |                  |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%203" alt="\times 3" /> | 27.21 / 0.7401 | 28.95 / 0.8013 |                  |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%204" alt="\times 4" /> | 25.96 / 0.6697 | 27.41 / 0.7297 |                  |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%202" alt="\times 2" /> | 29.56 / 0.8442 | 32.08 / 0.8985 | 31.94 / 0.8974   |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%203" alt="\times 3" /> | 27.21 / 0.7401 | 28.95 / 0.8013 | 28.75 / 0.7978   |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%204" alt="\times 4" /> | 25.96 / 0.6697 | 27.41 / 0.7297 | 27.20 / 0.7248   |
 
 - Fine Tuning
 
 | scale                                                        | Bicubic        | IDN (Original) | IDN (TensorFlow) |
 | ------------------------------------------------------------ | -------------- | -------------- | ---------------- |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%202" alt="\times 2" /> | 29.56 / 0.8442 | 32.08 / 0.8985 |                  |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%203" alt="\times 3" /> | 27.21 / 0.7401 | 28.95 / 0.8013 |                  |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%204" alt="\times 4" /> | 25.96 / 0.6697 | 27.41 / 0.7297 |                  |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%202" alt="\times 2" /> | 29.56 / 0.8442 | 32.08 / 0.8985 | 31.99 / 0.8982   |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%203" alt="\times 3" /> | 27.21 / 0.7401 | 28.95 / 0.8013 | 28.78 / 0.7988   |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%204" alt="\times 4" /> | 25.96 / 0.6697 | 27.41 / 0.7297 | 27.17 / 0.7257   |
+
+---
 
 - **Urban100**
 - Pre-Training
 
 | scale                                                        | Bicubic        | IDN (Original) | IDN (TensorFlow) |
 | ------------------------------------------------------------ | -------------- | -------------- | ---------------- |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%202" alt="\times 2" /> | 26.88 / 0.8410 | 31.27 / 0.9196 |                  |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%203" alt="\times 3" /> | 24.46 / 0.7358 | 27.42 / 0.8359 |                  |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%204" alt="\times 4" /> | 23.14 / 0.6588 | 25.41 / 0.7632 |                  |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%202" alt="\times 2" /> | 26.88 / 0.8410 | 31.27 / 0.9196 | 30.82 / 0.9157   |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%203" alt="\times 3" /> | 24.46 / 0.7358 | 27.42 / 0.8359 | 26.85 / 0.8240   |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%204" alt="\times 4" /> | 23.14 / 0.6588 | 25.41 / 0.7632 | 24.90 / 0.7467   |
 
 
 
@@ -270,9 +276,9 @@ PSNR performance plot on Set5
 
 | scale                                                        | Bicubic        | IDN (Original) | IDN (TensorFlow) |
 | ------------------------------------------------------------ | -------------- | -------------- | ---------------- |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%202" alt="\times 2" /> | 26.88 / 0.8410 | 31.27 / 0.9196 |                  |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%203" alt="\times 3" /> | 24.46 / 0.7358 | 27.42 / 0.8359 |                  |
-| <img src="https://tex.s2cms.ru/svg/%5Ctimes%204" alt="\times 4" /> | 23.14 / 0.6588 | 25.41 / 0.7632 |                  |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%202" alt="\times 2" /> | 26.88 / 0.8410 | 31.27 / 0.9196 | 30.96 / 0.9173   |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%203" alt="\times 3" /> | 24.46 / 0.7358 | 27.42 / 0.8359 | 26.95 / 0.8271   |
+| <img src="https://tex.s2cms.ru/svg/%5Ctimes%204" alt="\times 4" /> | 23.14 / 0.6588 | 25.41 / 0.7632 | 24.89 / 0.7500   |
 
 ------
 
@@ -280,14 +286,12 @@ PSNR performance plot on Set5
 
 - "img002" of Urban100 for scale 2
 
-| Ground Truth | Bicubic | IDN (TensorFlow) Pre-train | IDN (Tensorflow) Fine Tuning |
-| ------------ | ------- | -------------------------- | ---------------------------- |
-|              |         |                            |                              |
-|              |         |                            |                              |
+| Ground Truth                                               | Bicubic                                                      | IDN (TensorFlow) Pre-train                                   | IDN (TensorFlow) Fine Tuning                                 |
+| ---------------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| ![img002-gt](./resources/figure/012-img002-gt.png)         | ![img002-bic](./resources/figure/012-img002-bic.png)         | ![img002-pre](./resources/figure/012-img002-sr-pre.png)      | ![img002-pre](./resources/figure/012-img002-sr.png)          |
+| ![img002-gt-det](./resources/figure/012-img002-gt-det.png) | ![img002-bic-det](./resources/figure/012-img002-bic-det.png) | ![img002-sr-pre-det](./resources/figure/012-img002-sr-pre-det.png) | ![img002-sr-pre-det](./resources/figure/012-img002-sr-det.png) |
 
-- ???
-- ???
-- ???
+
 
 ------
 
@@ -296,6 +300,8 @@ PSNR performance plot on Set5
 Image Size
 
 Epochs and Learning rate decay step
+
+asdf
 
 
 
@@ -347,7 +353,7 @@ python main.py --model_name=idn_pre_x2 --is_train=False --scale=2
 
 ### Trained checkpoint in experiments
 
-- checkpoint 
+- asdf
 
 ### Training dataset
 
