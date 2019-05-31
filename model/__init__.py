@@ -23,7 +23,7 @@ class Model(object):
             with tf.name_scope('total_loss'):
                 self.loss, self.regularizer = self._loss_function(config.reg_parameter, config.pretrain)
 
-            with tf.name_scope('vdsr_learning_rate'):
+            with tf.name_scope('learning_rate'):
                 if config.learning_rate_decay:
                     self.learning_rate = tf.train.exponential_decay(
                         config.learning_rate, self.global_step,
@@ -33,7 +33,7 @@ class Model(object):
                 else:
                     self.learning_rate = config.learning_rate
 
-            with tf.name_scope('vdsr_optimizer'):
+            with tf.name_scope('optimizer'):
                 self.optimize = self._optimization_function()
 
             self.psnr = tf.reduce_mean(tf.image.psnr(self.gt, self.inference, 1.))
